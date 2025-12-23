@@ -1,0 +1,9 @@
+name: Hello World Workflow
+on: [push] # The event that triggers the workflow
+
+jobs:
+  say-hello: # The Job name
+    runs-on: ubuntu-latest # The virtual environment (Runner)
+    steps:
+      - name: Print a message
+        run: echo "Hello, GitHub Actions!"
