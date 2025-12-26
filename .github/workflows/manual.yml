@@ -1,0 +1,16 @@
+name: Manual Workflow
+on:
+  workflow_dispatch: # Enables the "Run workflow" button in the UI
+    inputs:
+      environment:
+        description: 'Where to deploy?'
+        required: true
+        default: 'staging'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use Secret
+        run: echo "Deploying to ${{ github.event.inputs.environment }} using key ${{ secrets.SUPER_SECRET_KEY }}"
+        # Note: GitHub automatically masks secrets in logs with ***
